@@ -23,7 +23,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 #streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 
 #pre setting few fruits based on favourites
-streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index,['Avacados','Strawberries']))
+streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avacados','Strawberries'])
 
 #display the table on the page
 streamlit.dataframe(my_fruit_list)
