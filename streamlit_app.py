@@ -57,13 +57,21 @@ fruityvice_normalized=pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 #fruit of choice
+#fruit_choice=streamlit.text_input('What fruit would you like information about?', 'Kiwi')
+try:        
 fruit_choice=streamlit.text_input('What fruit would you like information about?', 'Kiwi')
 streamlit.write('The user entered', fruit_choice)
 
-fruityvice_response2=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-streamlit.text(fruityvice_response2)
-fruityvice_normalized2=pandas.json_normalize(fruityvice_response2.json())
-streamlit.dataframe(fruityvice_normalized2)
+if not fruit_choice:         
+         streamlit.error ("Please select a fruit to get information.")
+else:
+         fruityvice_response2=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+         streamlit.text(fruityvice_response2)
+         fruityvice_normalized2=pandas.json_normalize(fruityvice_response2.json())
+         streamlit.dataframe(fruityvice_normalized2)
+         
+except URLError as e:
+         streamlit.error()
 
 #Stop processing here 
 streamlit.stop()
