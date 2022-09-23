@@ -49,3 +49,10 @@ fruityvice_response=requests.get("https://fruityvice.com/api/fruit/watermelon")
 fruityvice_normalized=pandas.json_normalize(fruityvice_response.json())
 #output it the screen as a table
 streamlit.dataframe(fruityvice_normalized)
+
+#fruit of choice
+fruit_choice=streamlit.text_input('What fruit would you like information about?', 'Kiwi')
+streamlit.write('The user entered', fruit choice)
+
+fruityvice_response2=requests.get("https://fruityvice.com/api/fruit/" + fruit choice)
+streamlit.text(fruityvice_response2)
