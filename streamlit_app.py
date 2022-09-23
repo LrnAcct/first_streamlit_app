@@ -124,7 +124,7 @@ if streamlit.button('Add a Fruit to the List'):
 #my_cur.execute("insert into fruit_load_list values ('from streamlit')") # code moved to function insert_row_snowflake
 
 #get fruit load list
-def get_fruit_load_list:
+def get_fruit_load_list():
          fruitload_response=requests.get("https://fruityvice.com/api/fruit/")
          fruitload_normalized=pandas.json_normalize(fruitload_response.json())
          return fruitload_normalized
