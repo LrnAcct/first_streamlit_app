@@ -125,9 +125,11 @@ if streamlit.button('Add a Fruit to the List'):
 
 #get fruit load list
 def get_fruit_load_list():
-         fruitload_response=requests.get("https://fruityvice.com/api/fruit/")
-         fruitload_normalized=pandas.json_normalize(fruitload_response.json())
-         return fruitload_normalized
+         my_cur=my_cnx.cursor()
+         my_cur.execute("select * from fruit_load_list")
+         my_fruit_list = my_cur.fetchall()
+         return my_fruit_list
+         
 
 # Add a button to load the fruit
 if streamlit.button( 'Get Fruit List'):
