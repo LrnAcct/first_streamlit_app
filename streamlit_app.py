@@ -45,6 +45,7 @@ fruityvice_response=requests.get("https://fruityvice.com/api/fruit/watermelon")
 #streamlit.text(fruityvice_response)
 #streamlit.text(fruityvice_response.json()) # just writes the data to the screen
 
+
 # take the json version of the response and normalize it
 fruityvice_normalized=pandas.json_normalize(fruityvice_response.json())
 #output it the screen as a table
@@ -56,3 +57,5 @@ streamlit.write('The user entered', fruit_choice)
 
 fruityvice_response2=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 streamlit.text(fruityvice_response2)
+fruityvice_normalized2=pandas.json_normalize(fruityvice_response2.json)
+streamlit.dataframe(fruityvice_normalized2)
